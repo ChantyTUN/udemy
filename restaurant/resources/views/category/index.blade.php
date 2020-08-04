@@ -10,7 +10,13 @@
             </div>    
         @endif
             <div class="card">
-                <div class="card-header">All Category</div>
+                <div class="card-header">All Category
+                <span class="float-right">
+                        <a href="{{route('category.create')}}">
+                            <button class="btn btn-outline-info">Add Category</button>
+                        </a>
+                    </span>
+                </div>
 
                 <div class="card-body">
                     <table class="table">

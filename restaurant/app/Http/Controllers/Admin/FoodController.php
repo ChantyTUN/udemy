@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Model\Food;
+use App\Model\Category;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class FoodController extends Controller
 {
@@ -93,7 +94,30 @@ class FoodController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name'=>'required',
+            'description'=>'required',
+            'price'=>'required|integer',
+            'category'=>'required',
+            'image'=>'mimes:jpg,png,jpeg'
+        ]);
+        $food=Food::find($id);
+        $name=$food->image;
+
+        if($request->hasFile('image')){
+            $image=$request->file('image');
+            $name=time().'.'.$image->getClientOriginalExtension();
+            $destinationPath=public_path('/images');
+            $image->move($destinationPath,$name);
+        }
+        $food->name=$request->get('name');
+        $food->description=$request->get('description');
+        $food->price=$request->get('price');
+        $food->category_id=$request->get('category');
+        $food->image=$name;
+        $food->save();
+
+        return redirect()->route('food.index')->with('message','Food Updated');
     }
 
     /**
@@ -104,6 +128,19 @@ class FoodController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $food = Food::find($id);
+        $food->delete();
+        return redirect()->route('food.index')->with('message','Food Deleted');
+    }
+
+    public function listFood(){
+        $categories = Category::with('food')->get();
+        return view('food.list',compact('categories'));
+    }
+
+    public function view($id){
+        $food = Food::find($id);
+        return view('food.detail',compact('food'));
+
     }
 }
