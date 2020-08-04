@@ -16,6 +16,8 @@ class FoodController extends Controller
     public function index()
     {
         //
+        $foods=Food::latest()->paginate(10);
+        return view('food.index',compact('foods'));
     }
 
     /**
@@ -41,9 +43,22 @@ class FoodController extends Controller
             'description'=>'required',
             'price'=>'required|integer',
             'category'=>'required',
-            'image'=>'required|mimes:png, jpeg,jpg'
-
+            'image'=>'required|mimes:jpg,png,jpeg'
         ]);
+        $image=$request->file('image');
+        $name=time().'.'.$image->getClientOriginalExtension();
+        $destinationPath=public_path('/images');
+        $image->move($destinationPath,$name);
+
+        Food::create([
+            'name'=>$request->get('name'),
+            'description'=>$request->get('description'),
+            'price'=>$request->get('price'),
+            'category_id'=>$request->get('category'),
+            'image'=>$name
+        ]);
+
+        return redirect()->back()->with('message','Food Created');
     }
 
     /**
@@ -65,7 +80,8 @@ class FoodController extends Controller
      */
     public function edit($id)
     {
-        //
+        $food= Food::find($id);
+        return view('food.edit',compact('food'));
     }
 
     /**

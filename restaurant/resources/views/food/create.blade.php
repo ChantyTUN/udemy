@@ -4,11 +4,16 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+        @if(Session::has('message'))
+            <div class="alert alert-success" role="alert">
+                <strong>{{Session::get('message')}}</strong>
+            </div>    
+        @endif
             <div class="card">
                 <div class="card-header">Add new Food</div>
 
                     <div class="card-body">
-                    <form action="{{route('food.store')}}" method="post">
+                    <form action="{{route('food.store')}}" method="post" enctype="multipart/form-data"> 
                         @csrf
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -30,7 +35,7 @@
                     </div>
                     <div class="form-group">
                         <label for="price">Price</label>
-                        <input type="text" name="price" class="form-control @error('price') is-invalid @enderror">
+                        <input type="number" name="price" class="form-control @error('price') is-invalid @enderror">
                         @error('price')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -39,7 +44,7 @@
                     </div>
                     <div class="form-group">
                         <label for="name">Category</label>
-                    <select id="category" class="form-control @error('category') is-invalid @enderror">
+                    <select name="category" class="form-control @error('category') is-invalid @enderror">
                             <option value="">--Select Category--</option>
                         @foreach(App\Model\Category::all() as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
@@ -53,7 +58,7 @@
                     </div>
                     <div class="form-group">
                         <label for="image">Image</label>
-                        <input type="text" name="image" class="form-control @error('image') is-invalid @enderror">
+                        <input type="file" name="image" class="form-control @error('image') is-invalid @enderror">
                         @error('image')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
