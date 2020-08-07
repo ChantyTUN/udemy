@@ -12,9 +12,16 @@
                                     11</b> </a></li>
                             </ul>
                             <ul class="widget widget-menu unstyled">
-                                <li><a href="{{route('question.create')}}"><i class="menu-icon icon-bullhorn"></i>Create Question </a>
+                                <li><a href="{{route('question.create')}}"><i class="menu-icon icon-check"></i>Create Question </a>
                                 </li>
-                                <li><a href="{{route('question.index')}}"><i class="menu-icon icon-inbox"></i>View Question <b class="label green pull-right">
+                                <li><a href="{{route('question.index')}}"><i class="menu-icon icon-check"></i>View Question <b class="label green pull-right">
+                                    11</b> </a></li>
+                            </ul>
+                            <!--/.widget-nav-->
+                            <ul class="widget widget-menu unstyled">
+                                <li><a href="{{route('user.create')}}"><i class="menu-icon icon-user"></i>Create User </a>
+                                </li>
+                                <li><a href="{{route('user.index')}}"><i class="menu-icon icon-user"></i>View User <b class="label green pull-right">
                                     11</b> </a></li>
                             </ul>
                             <!--/.widget-nav-->
@@ -37,7 +44,17 @@
                                         <li><a href="other-user-listing.html"><i class="icon-inbox"></i>All Users </a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#"><i class="menu-icon icon-signout"></i>Logout </a></li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </li>
                             </ul>
                         </div>
                         <!--/.sidebar-->
