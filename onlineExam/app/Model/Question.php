@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    protected $fillable = ['question', 'quiz_id',];
+    protected $fillable = ['question','quiz_id'];
     private $limit=10;
     private $order = 'DESC';
 
@@ -37,5 +37,17 @@ class Question extends Model
 
     public function findQuestion($id){
         return Question::find($id);
+    }
+
+    public function updateQuestion($id,$data){
+        $question = Question::find($id);
+        $question->question = $data['question'];
+        $question->quiz_id = $data['quiz'];
+        $question->save();
+        return $question;
+    }
+
+    public function deleteQuestion($id){
+         Question::where('id', $id)->delete();
     }
 }

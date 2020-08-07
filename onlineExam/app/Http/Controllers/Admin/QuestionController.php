@@ -59,12 +59,17 @@ class QuestionController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $data = $this->validateForm($request);
+        $question = (new Question)->updateQuestion($id,$request);
+        $answer = (new Answer)->updateAnswer($request,$question);
+        return redirect()->route('question.show',$id)->with('message','Question updated successully');
     }
 
     public function destroy($id)
     {
-        //
+        (new Answer)->deleteAnswer($id);
+        (new Question)->deleteQuestion($id);
+        return redirect()->route('question.index')->with('message','Question Deleted successfully');
     }
 
     public function validateForm($request){
