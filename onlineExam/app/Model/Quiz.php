@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use App\User;
 use App\Model\Quiz;
 use App\Model\Question;
 use Illuminate\Database\Eloquent\Model;
@@ -14,6 +15,10 @@ class Quiz extends Model
 
     public function questions(){
         return $this->hasMany(Question::class);
+    }
+
+    public function users(){
+        return $this->belongsTomany(User::class,'quiz_user');
     }
 
     public function storeQuiz($data){
@@ -34,5 +39,12 @@ class Quiz extends Model
 
     public function deleteQuiz($id){
         return Quiz::find($id)->delete();
+    }
+
+    public function assignExam($data){
+        $quizId = $data['quiz_id'];
+        $quiz = Quiz::find($quizId);
+        $userId = $data['user_id'];
+        return $quiz->users()->syncWithoutDetaching($userId);
     }
 }
