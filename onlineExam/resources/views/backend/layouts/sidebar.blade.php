@@ -11,6 +11,7 @@
                                 <li><a href="{{route('quiz.index')}}"><i class="menu-icon icon-inbox"></i>View Quiz <b class="label green pull-right">
                                     11</b> </a></li>
                             </ul>
+
                             <ul class="widget widget-menu unstyled">
                                 <li><a href="{{route('question.create')}}"><i class="menu-icon icon-check"></i>Create Question </a>
                                 </li>
@@ -18,6 +19,7 @@
                                     11</b> </a></li>
                             </ul>
                             <!--/.widget-nav-->
+
                             <ul class="widget widget-menu unstyled">
                                 <li><a href="{{route('user.create')}}"><i class="menu-icon icon-user"></i>Create User </a>
                                 </li>
@@ -25,6 +27,13 @@
                                     11</b> </a></li>
                             </ul>
                             <!--/.widget-nav-->
+
+                            <ul class="widget widget-menu unstyled">
+                                <li><a href="{{route('user.exam')}}"><i class="menu-icon icon-book"></i>Assign Exam </a>
+                                </li>
+                                <li><a href="{{route('view.exam')}}"><i class="menu-icon icon-book"></i>View Assign <b class="label green pull-right">
+                                    11</b> </a></li>
+                            </ul>
                             
                             <ul class="widget widget-menu unstyled">
                                 <li><a href="ui-button-icon.html"><i class="menu-icon icon-bold"></i> Buttons </a></li>

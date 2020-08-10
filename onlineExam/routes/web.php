@@ -37,8 +37,10 @@ Route::group(['middleware'=>'isAdmin'], function(){
 
     Route::get('/quiz/{id}/questions','Admin\QuizController@question')->name('quiz.question');
     
-    Route::get('exam/assign','Admin\ExamController@create');
+    Route::get('exam/assign','Admin\ExamController@create')->name('user.exam');
     Route::post('exam/assign','Admin\ExamController@assignExam')->name('exam.assign');
+    Route::get('exam/user','Admin\ExamController@userExam')->name('view.exam');
+    Route::post('exam/remove','Admin\ExamController@removeExam')->name('exam.remove');
 
 
 });
