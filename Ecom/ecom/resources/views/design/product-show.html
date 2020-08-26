@@ -1,0 +1,54 @@
+@extends('layouts.app')
+
+@section('content')
+
+
+<div class="container">
+
+
+	
+<div class="card">
+	<div class="row">
+		<aside class="col-sm-5 border-right">
+			<section class="gallery-wrap"> 
+			<div class="img-big-wrap">
+			  <div> <a href="#">
+			  	<img src="{{asset('images/photo1.jpg')}}"></a>
+			  </div>
+			</div> 
+			
+			</section> 
+		</aside>
+
+
+
+		<aside class="col-sm-7">
+			<section class="card-body p-5">
+				<h3 class="title mb-3">Name of the product</h3>
+
+<p class="price-detail-wrap"> 
+	<span class="price h3 text-danger"> 
+		<span class="currency">US $</span>Price
+	</span> 
+	 
+</p> <!-- price-detail-wrap .// -->
+  <h3>Description</h3>
+  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,  </p>
+  <h3>Additional information</h3>
+  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, </p>
+
+
+<hr>
+	
+	
+	<a href="#" class="btn btn-lg btn-outline-primary text-uppercase">  Add to cart </a>
+</section> 
+		</aside> 
+
+	</div> 
+</div> 
+
+
+</div>
+
+@endsection
