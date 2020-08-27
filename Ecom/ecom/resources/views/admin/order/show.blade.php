@@ -20,7 +20,7 @@
  				<div class="card-body">
  					@foreach($cart->items as $item)
  					<span class="float-right">
- 						<img src="{{Storage::url($item['image'])}}" width="100">
+ 						<img src="{{asset($item['image'])}}" width="100">
  					</span>
 
  					<p>Name:{{$item['name']}}</p>

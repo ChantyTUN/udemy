@@ -22,12 +22,14 @@ class ProductController extends Controller
       $this->validate($request,[
          'name'=>'required',
          'description'=>'required|min:3',
-         'image'=>'required|mimes:jpeg,png',
+         'image'=>'required|image|mimes:jpeg,png,jpg,bmp,gif,svg|max:2048',
          'price'=>'required|numeric',
          'additional_info'=>'required',
          'category'=>'required'
       ]);
-        $image = $request->file('image')->store('public/product');
+         $image = time().'.'.$request->image->getClientOriginalExtension();
+         $request->image->move(public_path('product'), $image);
+      //   $image = $request->file('image')->store('public/product');
 
         Product::create([
 
@@ -57,26 +59,24 @@ class ProductController extends Controller
       $product = Product::find($id);
         $filename = $product->image;
         if($request->file('image')){
-            $image = $request->file('image')->store('public/product');
-            \Storage::delete($filename);
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->image = $image;
-        $product->price=$request->price;
-        $product->additional_info = $request->additional_info;
-        $product->category_id = $request->category;
-        $product->subcategory_id = $request->subcategory;
-        $product->save();
+            $image = time().'.'.$request->image->getClientOriginalExtension();
+            $request->image->move(public_path('product'), $image);
+            $product->name = $request->name;
+            $product->description = $request->description;
+            $product->image = $image;
+            $product->price=$request->price;
+            $product->additional_info = $request->additional_info;
+            $product->category_id = $request->category;
+            $product->subcategory_id = $request->subcategory;
+            $product->save();
        }else{
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->price=$request->price;
-        $product->additional_info = $request->additional_info;
-        $product->category_id = $request->category;
-        $product->subcategory_id = $request->subcategory;
-
-
-        $product->save();
+            $product->name = $request->name;
+            $product->description = $request->description;
+            $product->price=$request->price;
+            $product->additional_info = $request->additional_info;
+            $product->category_id = $request->category;
+            $product->subcategory_id = $request->subcategory;
+            $product->save();
     }
         notify()->success('Product updated successfully!');
         return redirect()->route('product.index');

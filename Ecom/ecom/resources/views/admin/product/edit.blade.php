@@ -52,7 +52,7 @@
                       <div class="custom-file">
                         <input type="file" class="custom-file-input @error('image') is-invalid @enderror  " id="customFile" name="image">
                         <label class="custom-file-label  " for="customFile">Choose file</label>
-                       <center> <img src="{{Storage::url($product->image)}}" width="100"></center>
+                       <center> <img src="{{asset('product/'.$product->image)}}" width="100"></center>
                             @error('image')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

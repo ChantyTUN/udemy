@@ -37,7 +37,7 @@
                       <tr>
 
                         <td><a href="#">{{$key+1}}</a></td>
-                        <td><img src="{{Storage::url($category->image)}}" width="100"></td>
+                        <td><img src="{{asset('categories/'.$category->image)}}" width="100"></td>
                         <td>{{$category->name}}</td>
                         <td>{{$category->description}}</td>
                         

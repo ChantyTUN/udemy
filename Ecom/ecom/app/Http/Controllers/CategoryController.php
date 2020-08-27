@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use App\Category;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Image;
+
 class CategoryController extends Controller
 {
     /**
@@ -39,9 +41,12 @@ class CategoryController extends Controller
         $this->validate($request,[
             'name'=>'required|unique:categories',
             'description'=>'required',
-            'image'=>'required|mimes:jpeg,png'
+            'image'=>'required|image|mimes:jpeg,png,jpg,bmp,gif,svg|max:2048'
         ]);
-        $image = $request->file('image')->store('public/files');
+
+        $image = time().'.'.$request->image->getClientOriginalExtension();
+        $request->image->move(public_path('categories'), $image);
+        // dd($image);
         Category::create([
             'name'=>$request->name,
             'slug'=>Str::slug($request->name),
@@ -90,8 +95,8 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $image = $category->image;
         if($request->hasFile('image')){
-            $image = $request->file('image')->store('public/files');
-             \Storage::delete($category->image);
+            $image = time().'.'.$request->image->getClientOriginalExtension();
+            $request->image->move(public_path('categories'), $image);
            
         }
         $category->name= $request->name;

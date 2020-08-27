@@ -10,7 +10,7 @@
             <section class="gallery-wrap"> 
             <div class="img-big-wrap">
               <div> <a href="#">
-                <img src="{{Storage::url($product->image)}}"  width="450" ></a>
+                <img src="{{asset('product/'.$product->image)}}"  width="450" ></a>
               </div>
             </div> 
             
@@ -58,7 +58,7 @@
       @foreach($productFromSameCategories as $product)
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="{{Storage::url($product->image)}}" height="200" style="width: 100%">
+            <img src="{{asset('product/'.$product->image)}}" height="200" style="width: 100%">
 
         
 

@@ -34,7 +34,7 @@
                       <tr>
 
                         <td><a href="#">{{$key+1}}</a></td>
-                        <td><img src="{{Storage::url($slider->image)}}" width="100"></td>
+                        <td><img src="{{asset('slider/'.$slider->image)}}" width="100"></td>
                        
                         
                        

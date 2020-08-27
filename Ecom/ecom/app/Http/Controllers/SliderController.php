@@ -17,9 +17,11 @@ class SliderController extends Controller
 
     public function store(Request $request){
     	$this->validate($request,[
-    		'image'=>'required|mimes:jpeg,png'
-    	]);
-    	$image = $request->file('image')->store('public/slider');
+    		'image'=>'required|image|mimes:jpeg,png,jpg,bmp,gif,svg|max:2048'
+		]);
+		$image = time().'.'.$request->image->getClientOriginalExtension();
+		$request->image->move(public_path('slider'), $image);
+    	// $image = $request->file('image')->store('public/slider');
     	Slider::create([
 
     		'image'=>$image

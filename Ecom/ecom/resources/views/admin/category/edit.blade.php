@@ -53,7 +53,7 @@
                       <div class="custom-file">
                         <input type="file" class="custom-file-input " id="customFile" name="image">
                         <label class="custom-file-label @error('description') is-invalid @enderror " for="customFile">Choose file</label>
-                        <img src="{{Storage::url($category->image)}}" width="100" height="100">
+                        <img src="{{asset('categories/'.$category->image)}}" width="100" height="100">
                             @error('image')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -63,20 +63,7 @@
                        
                     </div>
                     <div class="form-group">
-                      <div class="container">
-                          <div class="row">
-                              <div class="col-lg-8 col-sm-12 col-11 main-section">
-                                  <h1 class="text-center text-danger">File Input Example</h1><br>
-                                  <form enctype="multipart/form-data">
-                                      <div class="form-group">
-                                          <div class="file-loading">
-                                              <input id="file-1" type="file" multiple class="file" data-overwrite-initial="false" data-min-file-count="2">
-                                          </div>
-                                      </div>
-                                  </form>            
-                              </div>
-                          </div>
-                      </div>
+                     
                     </div>
                     <br>
                    

@@ -12,7 +12,7 @@
     @foreach($sliders as $key=> $slider)
 
     <div class="carousel-item {{$key == 0 ? 'active' : ''}} ">
-      <img src="{{Storage::url($slider->image)}}" >
+      <img src="{{asset('slider/'.$slider->image)}}" >
     </div>
     @endforeach
     @endif
@@ -46,7 +46,7 @@
       @foreach($products as $product)
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="{{Storage::url($product->image)}}" height="200" style="width: 100%">
+            <img src="{{asset('product/'.$product->image)}}" height="200" style="width: 100%">
             <div class="card-body">
                 <p><b>{{$product->name}}</b></p>
               <p class="card-text">
@@ -90,7 +90,7 @@
         @foreach($randomActiveProducts as $product)
         <div class="col-4">
                     <div class="card mb-4 shadow-sm">
-            <img src="{{Storage::url($product->image)}}" height="200" style="width: 100%">
+            <img src="{{asset('product/'.$product->image)}}" height="200" style="width: 100%">
             <div class="card-body">
                 <p><b>{{$product->name}}</b></p>
               <p class="card-text">
@@ -118,7 +118,7 @@
 
         <div class="col-4">
           <div class="card mb-4 shadow-sm">
-            <img src="{{Storage::url($product->image)}}" height="200" style="width: 100%">
+            <img src="{{asset('product/'.$product->image)}}" height="200" style="width: 100%">
             <div class="card-body">
                 <p><b>{{$product->name}}</b></p>
               <p class="card-text">
@@ -163,7 +163,7 @@
     <p class="float-right">
       <a href="#">Back to top</a>
     </p>
-    <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+    <p>Mr.Chanty TUN Designer is &copy; Bootstrap, but please download and customize it for yourself!</p>
     <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.4/getting-started/introduction/">getting started guide</a>.</p>
   </div>
 </footer>

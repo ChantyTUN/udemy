@@ -22,7 +22,7 @@
       @foreach($products as $product)
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="{{Storage::url($product->image)}}" height="200" style="width: 100%">
+            <img src="{{asset('product/'.$product->image)}}" height="200" style="width: 100%">
             <div class="card-body">
                 <p><b>{{$product->name}}</b></p>
               <p class="card-text">

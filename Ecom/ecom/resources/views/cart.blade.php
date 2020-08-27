@@ -31,7 +31,7 @@
     <tr>
       <th scope="row">{{$i++}}</th>
       
-      <td><img src="{{Storage::url($product['image'])}}" width="100"></td>
+      <td><img src="{{asset('product/'.$product['image'])}}" width="100"></td>
       <td>{{$product['name']}}</td>
       <td>${{$product['price']}}</td>
       <td>
