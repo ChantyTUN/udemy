@@ -51,7 +51,7 @@ class FrontProductListController extends Controller
             $subcategories = Subcategory::where('category_id',$category->id)->get();
             $slug = $name;
 
-        return view('category',compact('products','subcategories','slug','filterSubCategories','price','categoryId'));
+        return view('category',compact('products','subcategories','slug','categoryId'));
     }
 
     public function filterProducts(Request $request){

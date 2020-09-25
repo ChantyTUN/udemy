@@ -21,7 +21,7 @@
                >{{$subcategory->name}}</p>
            <!--end foreach-->
            @endforeach
-          <input type="submit" value="Filter" class="btn btn-secondary">
+          <input type="submit" value="Filter" class="btn btn-info">
          </form>
          <hr>
          <h3>Filter by price</h3>
@@ -34,7 +34,7 @@
              
              <br>
              <br>
-            <input type="submit" value="Filter" class="btn btn-secondary">
+            <input type="submit" value="Filter" class="btn btn-info">
 
         </form>
        <hr>

@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Nunito';
+  font-family: 'Battambang', cursive;
   src: url('../font/Nunito-Regular.ttf');
   src: url('../font/Nunito-Regular.ttf') format('ttf'),
     url('../font/Nunito-Regular.ttf') format('truetype');
@@ -8,7 +8,7 @@
 html {
   position: relative;
   min-height: 100%;
-  font-family: 'Nunito';
+  font-family: 'Battambang', cursive;
 }
 
 body {

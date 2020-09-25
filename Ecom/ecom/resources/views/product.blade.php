@@ -32,9 +32,9 @@
 </div>
 
   <div class="container">
-  <h2>Category</h2>
+  <h2 id="demotext">Category</h2>
   @foreach(App\Category::all() as $cat)
-      <a href="{{route('product.list',[$cat->slug])}}"> <button class="btn btn-secondary">{{$cat->name}}</button></a>
+      <a href="{{route('product.list',[$cat->slug])}}"> <button class="btn btn-info">{{$cat->name}}</button></a>
   @endforeach
 
   <div class="album py-5 bg-light">
@@ -59,7 +59,8 @@
                 
                 <a class="addToCart" id="{{$product->id}}">
 
-                    <button type="button" class="btn btn-sm btn-outline-primary">{{$product->id}}sAdd to cart
+                    <button type="button" class="btn btn-sm btn-outline-primary">
+                    {{-- this is a comment {{$product->id}}s --}} Add to cart
                     </button>
 
                 </a>
@@ -163,8 +164,7 @@
     <p class="float-right">
       <a href="#">Back to top</a>
     </p>
-    <p>Mr.Chanty TUN Designer is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.4/getting-started/introduction/">getting started guide</a>.</p>
+   
   </div>
 </footer>
 </div>

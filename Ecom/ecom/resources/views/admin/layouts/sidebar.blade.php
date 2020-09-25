@@ -94,7 +94,7 @@
           </div>
         </div>
       </li>
-                <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap5"
           aria-expanded="true" aria-controls="collapseBootstrap5">
           <i class="far fa-fw fa-window-maximize"></i>
@@ -109,6 +109,37 @@
           </div>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap6"
+          aria-expanded="true" aria-controls="collapseBootstrap6">
+          <i class="far fa-fw fa-window-maximize"></i>
+          <span>Setting</span>
+        </a>
+        <div id="collapseBootstrap6" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Create </h6>
+            <a class="collapse-item" href="{{route('order.index')}}">View</a>
+           
+           
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap7"
+          aria-expanded="true" aria-controls="collapseBootstrap7">
+          <i class="far fa-fw fa-window-maximize"></i>
+          <span>Management</span>
+        </a>
+        <div id="collapseBootstrap7" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Create </h6>
+            <a class="collapse-item" href="{{route('order.index')}}">View</a>
+           
+           
+          </div>
+        </div>
+      </li>
+
 
    <!--    <li class="nav-item">
         <a class="nav-link" href="forms.html">

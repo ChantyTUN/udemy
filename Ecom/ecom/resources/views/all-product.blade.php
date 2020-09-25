@@ -9,7 +9,7 @@
  				<input type="text" name="search" class="form-control" placeholder="search...">
  			</div>
  			<div class="col">
- 				<button type="submit" class="btn btn-secondary">Search</button>
+ 				<button type="submit" class="btn btn-info">Search</button>
  			</div>
  		</div>
 

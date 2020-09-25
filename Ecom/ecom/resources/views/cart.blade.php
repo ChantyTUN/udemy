@@ -37,7 +37,7 @@
       <td>
     <form action="{{route('cart.update',$product['id'])}}" method="post">@csrf
       	<input type="text" name="qty" value="{{$product['qty']}}">
-      	<button class="btn btn-secondary btn-sm">
+      	<button class="btn btn-info btn-sm">
       		<i class="fas fa-sync"></i>Update
       	</button>
       </form>
