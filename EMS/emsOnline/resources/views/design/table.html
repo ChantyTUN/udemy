@@ -1,0 +1,41 @@
+@extends('admin.layouts.master')
+
+@section('content')
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">All Departments</li>
+              </ol>
+            </nav>
+           
+                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>SN</th>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>Edit</th>
+                                                <th> Delete</th>
+                                              
+                                            </tr>
+                                        </thead>
+                                       
+                                        <tbody>
+                                           
+                                           <tr>
+                                                <td>1</td>
+                                                <td>something</td>
+                                                <td>something</td>
+                                                <td><i class="fas fa-trash"></i></td>
+                                                <td><i class="fas fa-edit"></i></td>
+                                            </tr>
+                                           
+                                        </tbody>
+                                    </table>
+
+        </div>
+    </div>
+</div>
+@endsection
