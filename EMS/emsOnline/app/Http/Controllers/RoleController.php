@@ -37,7 +37,7 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|unique:roles'
+            'name' => 'required|unique:roles,name,'.$id
         ]);
         Role::create($request->all());
         return redirect()->back()->with('message','Role Created Successfuly');

@@ -26,7 +26,6 @@
                             </span>
                         @enderror
 
-
                     </div>
                     <div class="form-group">
                         <label>Description</label>
